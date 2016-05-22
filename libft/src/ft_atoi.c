@@ -6,21 +6,25 @@
 /*   By: jomeirin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 13:06:13 by jomeirin          #+#    #+#             */
-/*   Updated: 2016/05/15 14:49:34 by jomeirin         ###   ########.fr       */
+/*   Updated: 2016/05/15 14:49:34 by simzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		atoi(const char *str)
+int		ft_atoi(const char *nptr)
 {
-	int		i;
-	int		total;
+	int		res;
+	int		lctrl;
+	int		sign;
 
-	i = 0;
-	total = 0;
-	while (*(str + i))
+	lctrl = 0;
+	res = 0;
+	sign = 1;
+	if (*nptr == 45)
 	{
-		total = total * 10 + (*(str + i) - 48);
-		i++;
+		nptr++;
+		sign = -1;
 	}
-	return (total);
+	while (*(nptr + lctrl))
+		res = res * 10 + (*(nptr + (lctrl++)) - '0');
+	return (res * sign);
 }
