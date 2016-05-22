@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomeirin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/11 13:02:30 by jomeirin          #+#    #+#             */
-/*   Updated: 2016/05/15 15:52:37 by simzam           ###   ########.fr       */
+/*   Created: 2016/05/11 13:06:13 by jomeirin          #+#    #+#             */
+/*   Updated: 2016/05/15 14:49:34 by jomeirin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlen(const char *str)
+int		atoi(const char *str)
 {
-	int i;
+	int		i;
+	int		total;
 
 	i = 0;
-	if (*(str + i) == '\0')
-		return (0);
-	while (*(str + i) != '\0')
+	total = 0;
+	while (*(str + i))
+	{
+		total = total * 10 + (*(str + i) - 48);
 		i++;
-	return (i);
+	}
+	return (total);
 }
