@@ -23,7 +23,7 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 	t_list	*keep_track;
 	t_list	*tracked;
 
-	if (!alst || !*alst || !del)
+	if (!alst || !*alst)
 		return ;
 	tracked = *alst;
 	while (tracked)
