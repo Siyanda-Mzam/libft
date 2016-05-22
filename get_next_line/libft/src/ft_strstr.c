@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomeirin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/11 13:02:30 by jomeirin          #+#    #+#             */
-/*   Updated: 2016/05/15 15:52:37 by simzam           ###   ########.fr       */
+/*   Created: 2016/05/15 16:12:42 by jomeirin          #+#    #+#             */
+/*   Updated: 2016/05/15 16:14:30 by jomeirin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strstr(char *hay, const char *needle)
 {
-	int i;
+	int	i;
+	int	j;
 
 	i = 0;
-	if (*(str + i) == '\0')
-		return (0);
-	while (*(str + i) != '\0')
-		i++;
-	return (i);
+	j = 0;
+	while (*(hay + i))
+	{
+		if (*(hay + i) == *(needle + j))
+		{
+			i++;
+			j++;
+		}
+		else
+			i++;
+		if (*(needle + j + 1) == '\0')
+			return ((hay + (i - j)));
+	}
+	return (NULL);
 }

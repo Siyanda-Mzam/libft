@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomeirin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/11 13:02:30 by jomeirin          #+#    #+#             */
-/*   Updated: 2016/05/15 15:52:37 by simzam           ###   ########.fr       */
+/*   Created: 2016/05/15 16:07:17 by jomeirin          #+#    #+#             */
+/*   Updated: 2016/05/15 16:09:20 by jomeirin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_tolower(char *str)
 {
-	int i;
+	int	pos;
+	int is_cap;
 
-	i = 0;
-	if (*(str + i) == '\0')
-		return (0);
-	while (*(str + i) != '\0')
-		i++;
-	return (i);
+	pos = -1;
+	while (*(str + (++pos)))
+	{
+		is_cap = (*(str + pos) >= 65 && *(str + pos) <= 90);
+		if (ft_isalpha(*(str + pos)) && is_cap)
+			*(str + pos) += 32;
+	}
+	return (str);
 }

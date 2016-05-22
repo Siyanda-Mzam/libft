@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomeirin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/11 13:02:30 by jomeirin          #+#    #+#             */
-/*   Updated: 2016/05/15 15:52:37 by simzam           ###   ########.fr       */
+/*   Created: 2016/05/15 16:10:30 by jomeirin          #+#    #+#             */
+/*   Updated: 2016/05/15 16:11:23 by jomeirin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_toupper(char *str)
 {
-	int i;
+	int		pos;
+	int		is_lower;
 
-	i = 0;
-	if (*(str + i) == '\0')
-		return (0);
-	while (*(str + i) != '\0')
-		i++;
-	return (i);
+	pos = -1;
+	while (*(str + (++pos)))
+	{
+		is_lower = *(str + pos) >= 97 && *(str + pos) <= 122;
+		if (ft_isalpha(*(str + pos)) && is_lower)
+			*(str + pos) -= 32;
+	}
+	return (str);
 }

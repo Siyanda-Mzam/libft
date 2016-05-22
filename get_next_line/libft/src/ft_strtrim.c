@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomeirin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/11 13:02:30 by jomeirin          #+#    #+#             */
-/*   Updated: 2016/05/15 15:52:37 by simzam           ###   ########.fr       */
+/*   Created: 2016/05/15 16:54:39 by jomeirin          #+#    #+#             */
+/*   Updated: 2016/05/15 16:54:42 by jomeirin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strtrim(char const *s)
 {
-	int i;
+	const char	*s2;
 
-	i = 0;
-	if (*(str + i) == '\0')
-		return (0);
-	while (*(str + i) != '\0')
-		i++;
-	return (i);
+	if (s == NULL)
+		return (NULL);
+	while (*s == '\n' || *s == '\r' || *s == ' ')
+		s++;
+	if (s == '\0')
+		return (ft_strnew(0));
+	s2 = s + (ft_strlen(s) - 1);
+	while (*s2 == '\n' || *s == '\r' || *s == ' ')
+		s2--;
+	return (ft_strsub(s, 0, (s2 - s) + 1));
 }
