@@ -1,61 +1,52 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: simzam <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/05/14 14:18:36 by simzam            #+#    #+#              #
+#    Updated: 2016/06/02 14:31:51 by simzam           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
-HEADER = ./includes/
-FLAG = -Wall -Wextra -Werror
-OPTION = -c -I $(HEADER)
-PATH_SRC = ./src/
+CFLAGS = -Wall -Werror -Wextra
+SOURCE = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
+		 ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c \
+		 ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c \
+		 ft_strrchr.c ft_strstr.c ft_strnstr.c ft_strcmp.c ft_strncmp.c \
+		 ft_atoi.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
+		 ft_isprint.c ft_toupper.c ft_tolower.c ft_memalloc.c ft_memdel.c \
+		 ft_strnew.c ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c \
+		 ft_strmap.c ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c \
+		 ft_strjoin.c ft_strtrim.c ft_strsplit.c ft_itoa.c ft_putchar.c \
+		 ft_putstr.c ft_putendl.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c \
+		 ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstdelone.c \
+		 ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_swap.c \
+		 ft_max.c ft_islower.c ft_isupper.c ft_sqrt.c ft_power.c \
+		 ft_btw.c ft_isblank.c ft_lstpushback.c ft_lstlen.c ft_strcf.c \
+		 ft_lstclear.c ft_lstnclear.c get_next_line.c ft_strconc.c \
+		 ft_clamp.c ft_mix.c ft_smoothstep.c ft_vec.c ft_vec2.c ft_vec3.c\
 
-SRC = $(PATH_SRC)ft_memset.c $(PATH_SRC)ft_strcpy.c $(PATH_SRC)ft_bzero.c \
- $(PATH_SRC)ft_memmove.c $(PATH_SRC)ft_memchr.c $(PATH_SRC)ft_memcmp.c \
- $(PATH_SRC)ft_strlen.c  $(PATH_SRC)ft_strdup.c $(PATH_SRC)ft_strncpy.c \
- $(PATH_SRC)ft_strcat.c $(PATH_SRC)ft_strncat.c $(PATH_SRC)ft_strlcat.c \
- $(PATH_SRC)ft_strchr.c $(PATH_SRC)ft_strstr.c $(PATH_SRC)ft_strnstr.c \
- $(PATH_SRC)ft_strcmp.c $(PATH_SRC)ft_strncmp.c $(PATH_SRC)ft_isalpha.c \
- $(PATH_SRC)ft_isdigit.c $(PATH_SRC)ft_isalnum.c $(PATH_SRC)ft_isprint.c \
- $(PATH_SRC)ft_toupper.c $(PATH_SRC)ft_tolower.c $(PATH_SRC)ft_isascii.c \
- $(PATH_SRC)ft_memalloc.c $(PATH_SRC)ft_memdel.c $(PATH_SRC)ft_strnew.c \
- $(PATH_SRC)ft_strdel.c $(PATH_SRC)ft_strclr.c $(PATH_SRC)ft_striter.c \
- $(PATH_SRC)ft_striteri.c $(PATH_SRC)ft_strmap.c $(PATH_SRC)ft_atoi.c \
- $(PATH_SRC)ft_memccpy.c $(PATH_SRC)ft_memcpy.c $(PATH_SRC)ft_putchar.c \
- $(PATH_SRC)ft_putchar_fd.c $(PATH_SRC)ft_putendl.c \
- $(PATH_SRC)ft_putendl_fd.c $(PATH_SRC)ft_putstr.c $(PATH_SRC)ft_putstr_fd.c \
- $(PATH_SRC)ft_putnbr_fd.c $(PATH_SRC)ft_putstr.c $(PATH_SRC)ft_putstr_fd.c \
- $(PATH_SRC)ft_strequ.c $(PATH_SRC)ft_strjoin.c $(PATH_SRC)ft_strmapi.c \
- $(PATH_SRC)ft_strnequ.c $(PATH_SRC)ft_strrchr.c $(PATH_SRC)ft_strsub.c \
- $(PATH_SRC)ft_strtrim.c $(PATH_SRC)ft_lstadd.c $(PATH_SRC)ft_lstdel.c \
- $(PATH_SRC)ft_lstdelone.c $(PATH_SRC)ft_lstnew.c $(PATH_SRC)ft_lstiter.c \
- $(PATH_SRC)ft_lstmap.c
+OBJ = $(SOURCE:.c=.o)
 
-OBJ = ft_memset.o ft_strcpy.o ft_bzero.o \
- ft_memmove.o ft_memchr.o ft_memcmp.o \
- ft_strlen.o  ft_strdup.o ft_strncpy.o \
- ft_strcat.o ft_strncat.o ft_strlcat.o \
- ft_strchr.o ft_strstr.o ft_strnstr.o \
- ft_strcmp.o ft_strncmp.o ft_isalpha.o \
- ft_isdigit.o ft_isalnum.o ft_isprint.o \
- ft_toupper.o ft_tolower.o ft_isascii.o \
- ft_memalloc.o ft_memdel.o ft_strnew.o \
- ft_strdel.o ft_strclr.o ft_striter.o \
- ft_striteri.o ft_strmap.o ft_atoi.o \
- ft_memccpy.o ft_memcpy.o ft_putchar.o \
- ft_putchar_fd.o ft_putendl.o \
- ft_putendl_fd.o ft_putstr.o ft_putstr_fd.o \
- ft_putnbr_fd.o ft_putstr.o ft_putstr_fd.o \
- ft_strequ.o ft_strjoin.o ft_strmapi.o \
- ft_strnequ.o ft_strrchr.o ft_strsub.o \
- ft_strtrim.o ft_lstadd.o ft_lstdel.o \
- ft_lstdelone.o ft_lstnew.o ft_lstiter.o \
- ft_lstmap.o
+.PHONY : all clean fclean re
 
-all: $(NAME) clean
+all : $(NAME)
 
-$(NAME):
-	gcc $(FLAG) $(OPTION) $(SRC)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+$(NAME) :  $(OBJ)	
+	@echo "Compiling \033[42m$(NAME)\033[0m..."
+	@gcc $(CFLAGS) -c $(SOURCE)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
-clean:
-	/bin/rm -f $(OBJ)
-fclean: clean
-	/bin/rm -f $(NAME)
+clean :
+	@echo "Removing object files ..."
+	@rm -rf $(OBJ)
 
-re: fclean all
+fclean : clean
+	@echo "Removing $(NAME) ..."
+	@rm -rf $(NAME)
+
+re : fclean all
